@@ -1,0 +1,21 @@
+# Ignore environments, caches, data
+miniconda3/
+.conda/
+.cache/
+.local/
+.ipython/
+.jupyter/
+.vscode-server/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Ignore data folders
+data/
+datasets/
+
+# Ignore temporary or system files
+.DS_Store
+Thumbs.db

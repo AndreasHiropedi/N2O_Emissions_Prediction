@@ -8,7 +8,7 @@ Below we provide a breakdown of the most important folders in this repository, a
 
 - ```data_exploration```: our data exploration notebooks, where we do some initial data cleaning and preprocessing as well as exploratory analysis
 
-- ```data_processing```: our notebooks for processing the data to make it ready to use in our experiments
+- ```helper_files```: files provided to us by our supervisors to help us with our analysis and experiments
 
 - ```baseline_experiments```: our notebooks for the experiments with our baseline models, namely Elasticnet, Random Forest and XGBoost
 

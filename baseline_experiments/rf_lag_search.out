@@ -1,0 +1,30 @@
+=== Job started on studgpu-node01.inf.ethz.ch at Wed Nov  5 13:26:21 CET 2025 ===
+Current working directory: /home/anding/N2O_Emissions_Prediction/baseline_experiments
+GPU Info:
+Wed Nov  5 13:26:21 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5060 Ti     On  |   00000000:06:00.0 Off |                  N/A |
+|  0%   29C    P0             29W /  180W |       2MiB /  16311MiB |    100%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Activated Conda env: dsl
+/home/anding/miniconda3/envs/dsl/bin/python
+Python 3.9.23
+Loading datasets...
+
+=== Training on Chamau ===
+Fitting 3 folds for each of 100 candidates, totalling 300 fits

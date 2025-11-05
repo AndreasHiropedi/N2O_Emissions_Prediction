@@ -1,0 +1,48 @@
+=== Job started on studgpu-node01.inf.ethz.ch at Tue Nov  4 16:38:30 CET 2025 ===
+Current working directory: /home/anding/N2O_Emissions_Prediction/baseline_experiments
+GPU Info:
+Tue Nov  4 16:38:30 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5060 Ti     On  |   00000000:04:00.0 Off |                  N/A |
+|  0%   29C    P8              9W /  180W |       2MiB /  16311MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Activated Conda env: dsl
+/home/anding/miniconda3/envs/dsl/bin/python
+Python 3.9.23
+Loading datasets...
+
+=== Training on Chamau ===
+✅ Chamau: R²=0.023, r=0.423
+
+=== Training on Chamau A ===
+✅ Chamau A: R²=0.237, r=0.571
+
+=== Training on Chamau B ===
+✅ Chamau B: R²=-0.061, r=0.578
+
+=== Training on Aeschi ===
+✅ Aeschi: R²=-0.025, r=0.142
+
+=== Training on Oensingen 1 ===
+✅ Oensingen 1: R²=-0.122, r=0.318
+
+=== Training on Oensingen 2 ===
+✅ Oensingen 2: R²=0.017, r=0.300
+
+✅ Finished. Summary saved to rf_results_lag//rf_summary.csv
+=== Job finished at Tue Nov  4 17:02:22 CET 2025 ===

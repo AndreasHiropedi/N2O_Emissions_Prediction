@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account=dslab
-#SBATCH --partition=jobs          # use the GPU job queue (7 days limit)
-#SBATCH --time=08:00:00           # walltime
+#SBATCH --partition=jobs           
+#SBATCH --time=24:00:00          
 #SBATCH --output=rf_lag_search.out
 #SBATCH --error=rf_lag_search.err
 

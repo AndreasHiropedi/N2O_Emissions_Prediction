@@ -12,14 +12,14 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use("Agg")  # headless for Slurm
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.decomposition import PCA
 from sklearn.pipeline import Pipeline
-from sklearn.model_selection import ParameterGrid
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.metrics import r2_score
-from scipy.stats import pearsonr
+from scipy.stats import pearsonr, randint, uniform
 
 # -------------------------
 # Config
@@ -28,6 +28,7 @@ OUT_DIR = "rf_results_lag/"
 DATE_COL = "Timestamp"
 TARGET = "N2O_Flux_ln"
 RANDOM_STATE = 42
+N_ITER = 100          # Number of random configs to try per dataset
 
 os.makedirs(OUT_DIR, exist_ok=True)
 os.makedirs(os.path.join(OUT_DIR, "plots"), exist_ok=True)
@@ -94,14 +95,14 @@ predictors = [
 ]
 
 # -------------------------
-# Hyperparameter grid
+# Randomized Hyperparameter Search Space
 # -------------------------
-param_grid = {
-    "rf__n_estimators": [200, 400],
-    "rf__max_depth": [10, 20, None],
-    "rf__min_samples_split": [2, 5, 10],
-    "rf__min_samples_leaf": [1, 2, 4],
-    "rf__max_features": ["sqrt", "log2"],
+param_dist = {
+    "rf__n_estimators": randint(200, 900),
+    "rf__max_depth": [None] + list(range(6, 30)),
+    "rf__min_samples_split": randint(2, 15),
+    "rf__min_samples_leaf": randint(1, 12),
+    "rf__max_features": ["sqrt", "log2"] + list(np.linspace(0.3, 0.8, 4)),
 }
 
 # -------------------------
@@ -128,81 +129,84 @@ def make_pipeline(use_pca):
 # -------------------------
 def main():
     results = []
+
     for name, df in datasets.items():
         print(f"\n=== Training on {name} ===")
+
         available = [p for p in predictors if p in df.columns]
         if len(available) < 10:
-            print(f"⚠️  Skipping {name}: only {len(available)} predictors available.")
+            print(f"Skipping {name}: only {len(available)} predictors exist.")
             continue
 
         train, val, test = split_train_val_test(df, available, TARGET, DATE_COL)
+
         X_train = train[available].values
         y_train = train[TARGET].values
         X_val = val[available].values
         y_val = val[TARGET].values
         X_test = test[available].values
         y_test = test[TARGET].values
+
         X_tune = np.vstack([X_train, X_val])
         y_tune = np.concatenate([y_train, y_val])
-        test_dates = test[DATE_COL].values
 
         use_pca = len(available) > 100
         model = make_pipeline(use_pca)
-        best_r2 = -np.inf
-        best_info = None
 
-        for params in ParameterGrid(param_grid):
-            model.set_params(**params)
-            model.fit(X_tune, y_tune)
-            y_pred = model.predict(X_test)
-            r2 = r2_score(y_test, y_pred)
-            r, _ = pearsonr(y_test, y_pred)
-            if r2 > best_r2:
-                best_r2 = r2
-                best_info = (params, y_pred, r)
+        search = RandomizedSearchCV(
+            estimator=model,
+            param_distributions=param_dist,
+            n_iter=N_ITER,
+            scoring="r2",
+            n_jobs=-1,
+            cv=3,
+            random_state=RANDOM_STATE,
+            verbose=1
+        )
 
-        # Save best model plots
-        params, y_pred, r = best_info
-        print(f"✅ {name}: R²={best_r2:.3f}, r={r:.3f}")
+        search.fit(X_tune, y_tune)
 
-        # Scatter plot
+        best_model = search.best_estimator_
+        y_pred = best_model.predict(X_test)
+
+        r2 = r2_score(y_test, y_pred)
+        r, _ = pearsonr(y_test, y_pred)
+
+        print(f"✅ {name}: R²={r2:.3f}, r={r:.3f}")
+
+        # Save plots
+        # Scatter
         plt.figure(figsize=(6, 5))
-        plt.scatter(y_test, y_pred, alpha=0.6, s=20)
-        plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], "r--", lw=2)
-        plt.xlabel("Observed N₂O Flux (ln)")
-        plt.ylabel("Predicted N₂O Flux (ln)")
-        plt.title(f"{name} — RF\nR²={best_r2:.3f}, r={r:.3f}")
+        plt.scatter(y_test, y_pred, alpha=0.6)
+        plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], "r--")
+        plt.xlabel("Observed")
+        plt.ylabel("Predicted")
+        plt.title(f"{name} — RF Randomized Search\nR²={r2:.3f}, r={r:.3f}")
         plt.tight_layout()
         plt.savefig(os.path.join(OUT_DIR, "plots", f"{name}_scatter.png"))
         plt.close()
 
-        # Time series plot
+        # Time Series
         plt.figure(figsize=(10, 4))
-        plt.plot(test_dates, y_test, label="Observed", color="black", lw=1.5)
-        plt.plot(test_dates, y_pred, label="Predicted", color="forestgreen", lw=1.5, alpha=0.8)
-        plt.xlabel("Date")
-        plt.ylabel("N₂O Flux (ln)")
-        plt.title(f"{name} — Random Forest Time Series")
+        plt.plot(test[DATE_COL].values, y_test, label="Observed")
+        plt.plot(test[DATE_COL].values, y_pred, label="Predicted")
         plt.legend()
+        plt.title(f"{name} — Time Series")
         plt.tight_layout()
         plt.savefig(os.path.join(OUT_DIR, "plots", f"{name}_timeseries.png"))
         plt.close()
 
         results.append({
             "Dataset": name,
-            "R²": round(best_r2, 3),
+            "R²": round(r2, 3),
             "Pearson_r": round(r, 3),
-            "n_train": len(train),
-            "n_val": len(val),
-            "n_test": len(test),
             "n_predictors": len(available),
             "use_pca": use_pca,
-            "best_params": params
+            "best_params": search.best_params_
         })
 
-    results_df = pd.DataFrame(results)
-    results_df.to_csv(os.path.join(OUT_DIR, "rf_summary.csv"), index=False)
-    print(f"\n✅ Finished. Summary saved to {OUT_DIR}/rf_summary.csv")
+    pd.DataFrame(results).to_csv(os.path.join(OUT_DIR, "rf_summary.csv"), index=False)
+    print("\n✅ Finished. Summary saved.")
 
 if __name__ == "__main__":
     main()

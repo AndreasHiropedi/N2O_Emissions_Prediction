@@ -1,0 +1,3 @@
+Dataset,R²,Pearson_r,n_predictors,use_pca,best_params
+Chamau Daily,0.295,0.577,66,False,"{'rf__max_depth': 28, 'rf__max_features': 0.3, 'rf__min_samples_leaf': 6, 'rf__min_samples_split': 6, 'rf__n_estimators': 643}"
+Oensingen Daily 2,0.306,0.602,74,False,"{'rf__max_depth': 38, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 6, 'rf__min_samples_split': 5, 'rf__n_estimators': 569}"

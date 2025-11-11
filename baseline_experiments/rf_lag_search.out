@@ -1,7 +1,5 @@
-=== Job started on studgpu-node01.inf.ethz.ch at Wed Nov  5 13:26:21 CET 2025 ===
-Current working directory: /home/anding/N2O_Emissions_Prediction/baseline_experiments
-GPU Info:
-Wed Nov  5 13:26:21 2025       
+=== Job started on studgpu-node01.inf.ethz.ch at Sun Nov  9 20:37:57 CET 2025 ===
+Sun Nov  9 20:37:57 2025       
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
 +-----------------------------------------+------------------------+----------------------+
@@ -10,7 +8,7 @@ Wed Nov  5 13:26:21 2025
 |                                         |                        |               MIG M. |
 |=========================================+========================+======================|
 |   0  NVIDIA GeForce RTX 5060 Ti     On  |   00000000:06:00.0 Off |                  N/A |
-|  0%   29C    P0             29W /  180W |       2MiB /  16311MiB |    100%      Default |
+|  0%   29C    P8              6W /  180W |       2MiB /  16311MiB |      0%      Default |
 |                                         |                        |                  N/A |
 +-----------------------------------------+------------------------+----------------------+
 
@@ -21,10 +19,25 @@ Wed Nov  5 13:26:21 2025
 |=========================================================================================|
 |  No running processes found                                                             |
 +-----------------------------------------------------------------------------------------+
-Activated Conda env: dsl
-/home/anding/miniconda3/envs/dsl/bin/python
-Python 3.9.23
 Loading datasets...
 
 === Training on Chamau ===
-Fitting 3 folds for each of 100 candidates, totalling 300 fits
+Skipping Chamau: only 0 predictors exist.
+
+=== Training on Chamau A ===
+Skipping Chamau A: only 0 predictors exist.
+
+=== Training on Chamau B ===
+Skipping Chamau B: only 0 predictors exist.
+
+=== Training on Aeschi ===
+Skipping Aeschi: only 0 predictors exist.
+
+=== Training on Oensingen 1 ===
+Skipping Oensingen 1: only 0 predictors exist.
+
+=== Training on Oensingen 2 ===
+Skipping Oensingen 2: only 0 predictors exist.
+
+✅ Finished. Summary saved.
+=== Job finished ===

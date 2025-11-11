@@ -1,23 +1,18 @@
 #!/bin/bash
-#SBATCH --account=dslab
-#SBATCH --partition=jobs           
-#SBATCH --time=24:00:00          
+#SBATCH --account=dslab_jobs
+#SBATCH --qos=anding-dslab_jobs
+#SBATCH --partition=jobs
+#SBATCH --time=24:00:00
+#SBATCH --mem=32G
 #SBATCH --output=rf_lag_search.out
 #SBATCH --error=rf_lag_search.err
 
-# Optional but helpful diagnostics
 echo "=== Job started on $(hostname) at $(date) ==="
-echo "Current working directory: $(pwd)"
-echo "GPU Info:"
-nvidia-smi || echo "No GPU detected (CPU job?)"
+nvidia-smi
 
-# --- Activate Conda environment ---
-source ~/miniconda3/bin/activate /home/anding/miniconda3/envs/dsl
-echo "Activated Conda env: $CONDA_DEFAULT_ENV"
-which python
-python --version
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate n2o-gpu
 
-# --- Run your script ---
-python ~/N2O_Emissions_Prediction/baseline_experiments/rf_exhaustive_search_lag.py
+python ~/N2O_Emissions_Prediction/baseline_experiments/rf_gpu_timeseries_optuna.py
 
-echo "=== Job finished at $(date) ==="
+echo "=== Job finished ==="

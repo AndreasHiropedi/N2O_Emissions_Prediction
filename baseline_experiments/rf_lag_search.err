@@ -1,1 +1,2 @@
-[2025-11-05T14:26:10.011] error: *** JOB 4036 ON studgpu-node01 CANCELLED AT 2025-11-05T14:26:10 DUE TO TIME LIMIT ***
+<frozen importlib._bootstrap_external>:1181: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1181: FutureWarning: The cuda.cuda module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.driver module instead.

@@ -42,7 +42,9 @@ pip install jupyter
 
 - https://doi.org/10.3929/ethz-c-000782868 (rename the file to Oensingen_2021-23.csv)
 - https://doi.org/10.3929/ethz-b-000747025 (rename the file to Chamau_2001-2024.csv)
-- https://doi.org/10.3929/ethz-b-000584890 (rename the files to Oensingen_2018-19.csv and the Aeschi file to Oensingen_2019-20.csv)
 - https://doi.org/10.5905/ethz-1002-22978 (rename the file to Aeschi_2019-20.csv)
+- https://doi.org/10.3929/ethz-b-000584890 (rename the files to Oensingen_2018-19.csv and the Aeschi file to Aeschi_2_2019-20.csv)
+
+Note: the datasets for 2 of the notebooks, namely Tanikon and Forel, cannot yet be downloaded as they haven't been published yet.
 
 7) Once this all is done, all the notebooks can be run as they are.

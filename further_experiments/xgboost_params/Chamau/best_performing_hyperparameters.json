@@ -1,0 +1,59 @@
+{
+    "Hourly_Base": {
+        "colsample_bytree": 0.6,
+        "gamma": 0,
+        "learning_rate": 0.01,
+        "max_depth": 8,
+        "min_child_weight": 1,
+        "n_estimators": 200,
+        "subsample": 0.7
+    },
+    "Hourly_Lag": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Hourly_Augmented": {
+        "colsample_bytree": 0.6,
+        "gamma": 0,
+        "learning_rate": 0.01,
+        "max_depth": 6,
+        "min_child_weight": 1,
+        "n_estimators": 300,
+        "subsample": 0.6
+    },
+    "Daily_Base": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Daily_Lag": {
+        "colsample_bytree": 0.7,
+        "gamma": 0.1,
+        "learning_rate": 0.2,
+        "max_depth": 5,
+        "min_child_weight": 3,
+        "n_estimators": 300,
+        "subsample": 0.9
+    },
+    "Daily_Augmented": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    }
+}

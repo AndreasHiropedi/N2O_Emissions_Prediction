@@ -1,0 +1,7 @@
+Dataset,R²,Pearson_r,n_train,n_val,n_test,n_predictors,use_pca,best_params
+Chamau,0.023,0.423,2839,608,608,68,False,"{'rf__max_depth': None, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 1, 'rf__min_samples_split': 10, 'rf__n_estimators': 400}"
+Chamau A,0.237,0.571,889,190,190,68,False,"{'rf__max_depth': 20, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 2, 'rf__min_samples_split': 2, 'rf__n_estimators': 200}"
+Chamau B,-0.061,0.578,1952,417,417,68,False,"{'rf__max_depth': 20, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 1, 'rf__min_samples_split': 10, 'rf__n_estimators': 200}"
+Aeschi,-0.025,0.142,846,181,181,69,False,"{'rf__max_depth': None, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 4, 'rf__min_samples_split': 2, 'rf__n_estimators': 200}"
+Oensingen 1,-0.122,0.318,1060,227,227,76,False,"{'rf__max_depth': None, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 2, 'rf__min_samples_split': 10, 'rf__n_estimators': 200}"
+Oensingen 2,0.017,0.3,4487,961,961,76,False,"{'rf__max_depth': None, 'rf__max_features': 'log2', 'rf__min_samples_leaf': 1, 'rf__min_samples_split': 2, 'rf__n_estimators': 200}"

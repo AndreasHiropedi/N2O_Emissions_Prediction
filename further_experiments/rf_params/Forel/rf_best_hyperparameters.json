@@ -1,43 +1,43 @@
 {
     "Hourly_Base": {
         "max_depth": 5,
-        "max_features": 0.2,
-        "min_samples_leaf": 13,
+        "max_features": "sqrt",
+        "min_samples_leaf": 15,
         "min_samples_split": 2,
-        "n_estimators": 602
+        "n_estimators": 100
     },
     "Hourly_Lag": {
-        "max_depth": 42,
-        "max_features": 0.4,
-        "min_samples_leaf": 1,
-        "min_samples_split": 11,
-        "n_estimators": 1000
+        "max_depth": 5,
+        "max_features": 0.35,
+        "min_samples_leaf": 15,
+        "min_samples_split": 20,
+        "n_estimators": 100
     },
     "Hourly_Augmented": {
-        "max_depth": 50,
-        "max_features": 0.35,
+        "max_depth": 33,
+        "max_features": 0.25,
         "min_samples_leaf": 11,
-        "min_samples_split": 2,
-        "n_estimators": 453
+        "min_samples_split": 10,
+        "n_estimators": 100
     },
     "Daily_Base": {
-        "max_depth": 5,
+        "max_depth": 9,
         "max_features": 0.2,
         "min_samples_leaf": 1,
         "min_samples_split": 20,
-        "n_estimators": 609
+        "n_estimators": 294
     },
     "Daily_Lag": {
         "max_depth": 5,
         "max_features": "log2",
-        "min_samples_leaf": 15,
+        "min_samples_leaf": 14,
         "min_samples_split": 2,
         "n_estimators": 100
     },
     "Daily_Augmented": {
         "max_depth": 50,
-        "max_features": 0.25,
-        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "min_samples_leaf": 3,
         "min_samples_split": 20,
         "n_estimators": 100
     }

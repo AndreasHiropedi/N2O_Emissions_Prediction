@@ -1,44 +1,44 @@
 {
     "Hourly_Base": {
-        "max_depth": 32,
+        "max_depth": 50,
         "max_features": 0.2,
         "min_samples_leaf": 1,
         "min_samples_split": 2,
         "n_estimators": 100
     },
     "Hourly_Lag": {
-        "max_depth": 5,
-        "max_features": "log2",
+        "max_depth": 37,
+        "max_features": 0.2,
         "min_samples_leaf": 1,
-        "min_samples_split": 7,
+        "min_samples_split": 2,
         "n_estimators": 100
     },
     "Hourly_Augmented": {
         "max_depth": 50,
-        "max_features": "log2",
+        "max_features": 0.25,
         "min_samples_leaf": 1,
-        "min_samples_split": 2,
-        "n_estimators": 987
-    },
-    "Daily_Base": {
-        "max_depth": 50,
-        "max_features": "log2",
-        "min_samples_leaf": 4,
-        "min_samples_split": 2,
+        "min_samples_split": 9,
         "n_estimators": 100
     },
+    "Daily_Base": {
+        "max_depth": 48,
+        "max_features": 0.2,
+        "min_samples_leaf": 5,
+        "min_samples_split": 3,
+        "n_estimators": 298
+    },
     "Daily_Lag": {
-        "max_depth": 5,
-        "max_features": 0.25,
-        "min_samples_leaf": 13,
-        "min_samples_split": 14,
+        "max_depth": 42,
+        "max_features": 0.35,
+        "min_samples_leaf": 10,
+        "min_samples_split": 20,
         "n_estimators": 100
     },
     "Daily_Augmented": {
-        "max_depth": 50,
-        "max_features": "log2",
-        "min_samples_leaf": 9,
-        "min_samples_split": 20,
-        "n_estimators": 1000
+        "max_depth": 17,
+        "max_features": 0.4,
+        "min_samples_leaf": 15,
+        "min_samples_split": 10,
+        "n_estimators": 100
     }
 }

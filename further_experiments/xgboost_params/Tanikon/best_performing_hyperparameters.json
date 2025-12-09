@@ -37,15 +37,6 @@
         "random_state": 42
     },
     "Daily_Lag": {
-        "colsample_bytree": 0.6,
-        "gamma": 0.5,
-        "learning_rate": 0.05,
-        "max_depth": 5,
-        "min_child_weight": 5,
-        "n_estimators": 200,
-        "subsample": 0.9
-    },
-    "Daily_Augmented": {
         "n_estimators": 300,
         "max_depth": 6,
         "learning_rate": 0.1,
@@ -54,5 +45,14 @@
         "min_child_weight": 1,
         "gamma": 0,
         "random_state": 42
+    },
+    "Daily_Augmented": {
+        "colsample_bytree": 0.6,
+        "gamma": 0.5,
+        "learning_rate": 0.01,
+        "max_depth": 5,
+        "min_child_weight": 5,
+        "n_estimators": 300,
+        "subsample": 0.8
     }
 }

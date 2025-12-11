@@ -1,0 +1,44 @@
+{
+    "Hourly_Base": {
+        "kernel": "rbf",
+        "C": 0.38194280332675784,
+        "epsilon": 0.2999755263774418,
+        "cache_size": 1000,
+        "gamma": 0.0010030980730932795
+    },
+    "Hourly_Lag": {
+        "kernel": "rbf",
+        "C": 0.11259018544077165,
+        "epsilon": 0.2995385706177273,
+        "cache_size": 1000,
+        "gamma": 0.0997326078076011
+    },
+    "Hourly_Augmented": {
+        "kernel": "rbf",
+        "C": 0.14519867724065547,
+        "epsilon": 0.2954087253952833,
+        "cache_size": 1000,
+        "gamma": 0.09910739799353531
+    },
+    "Daily_Base": {
+        "kernel": "rbf",
+        "C": 0.44970135906543063,
+        "epsilon": 0.025142485679321497,
+        "cache_size": 1000,
+        "gamma": 0.0010088311910997306
+    },
+    "Daily_Lag": {
+        "kernel": "rbf",
+        "C": 2.4434184996405963,
+        "epsilon": 0.0645227473431398,
+        "cache_size": 1000,
+        "gamma": 0.045510284065159334
+    },
+    "Daily_Augmented": {
+        "kernel": "rbf",
+        "C": 2.1256421260195064,
+        "epsilon": 0.2830111673627198,
+        "cache_size": 1000,
+        "gamma": "scale"
+    }
+}

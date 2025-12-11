@@ -1,0 +1,44 @@
+{
+    "Hourly_Base": {
+        "kernel": "rbf",
+        "C": 0.7895016603144926,
+        "epsilon": 0.03491451807948741,
+        "cache_size": 1000,
+        "gamma": "scale"
+    },
+    "Hourly_Lag": {
+        "kernel": "rbf",
+        "C": 0.10382082431833152,
+        "epsilon": 0.02620146493654403,
+        "cache_size": 1000,
+        "gamma": "scale"
+    },
+    "Hourly_Augmented": {
+        "kernel": "rbf",
+        "C": 0.11535694596259718,
+        "epsilon": 0.02610816517037635,
+        "cache_size": 1000,
+        "gamma": "scale"
+    },
+    "Daily_Base": {
+        "kernel": "rbf",
+        "C": 0.258230815127216,
+        "epsilon": 0.020820391078082305,
+        "cache_size": 1000,
+        "gamma": 0.005006948445842001
+    },
+    "Daily_Lag": {
+        "kernel": "rbf",
+        "C": 0.10010593294550671,
+        "epsilon": 0.010756452187508172,
+        "cache_size": 1000,
+        "gamma": 0.0013213800126501414
+    },
+    "Daily_Augmented": {
+        "kernel": "rbf",
+        "C": 0.10095556799242876,
+        "epsilon": 0.010032473463488031,
+        "cache_size": 1000,
+        "gamma": "scale"
+    }
+}

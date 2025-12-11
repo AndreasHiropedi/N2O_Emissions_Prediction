@@ -1,0 +1,59 @@
+{
+    "Hourly_Base": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Hourly_Lag": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Hourly_Augmented": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Daily_Base": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Daily_Lag": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    },
+    "Daily_Augmented": {
+        "kernel": "rbf",
+        "C": 4.877940403790484,
+        "epsilon": 0.2075940851958041,
+        "cache_size": 1000,
+        "gamma": 0.0010182335433036045
+    }
+}

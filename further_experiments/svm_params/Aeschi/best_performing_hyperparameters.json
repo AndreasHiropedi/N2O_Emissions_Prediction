@@ -1,0 +1,26 @@
+{
+    "Hourly_Base": {
+        "kernel": "rbf",
+        "C": 0.20803754152519396,
+        "epsilon": 0.08096352749513717,
+        "cache_size": 1000,
+        "gamma": 0.0029168816267818036
+    },
+    "Hourly_Lag": {
+        "kernel": "rbf",
+        "C": 0.11740305412363267,
+        "epsilon": 0.0352715161654633,
+        "cache_size": 1000,
+        "gamma": 0.0011137814705800316
+    },
+    "Hourly_Augmented": {
+        "n_estimators": 300,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8,
+        "min_child_weight": 1,
+        "gamma": 0,
+        "random_state": 42
+    }
+}
